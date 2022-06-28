@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:near_future_badges/badge_page.dart';
 import 'package:near_future_badges/badges_page.dart';
 import 'package:near_future_badges/theme/app_theme.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'NEAR Future Tickets',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: BadgesPage(title: 'NEAR Future Tickets - Badges'),
+      home: /*BadgesPage(title: 'NEAR Future Tickets - Badges')*/ BadgePage(),
     );
   }
 }

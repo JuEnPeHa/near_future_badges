@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:near_future_badges/badge_page.dart';
 import 'package:near_future_badges/models/badge.dart';
 
 class BadgeWidget extends StatelessWidget {
@@ -11,7 +12,12 @@ class BadgeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BadgePage(/*badge: badge*/),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -26,10 +32,12 @@ class BadgeWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   child: CachedNetworkImage(
                     imageUrl: badge.imageUrl,
-                    progressIndicatorBuilder: (context, url, downloadProgress) =>
-                        CircularProgressIndicator(
-                            value: downloadProgress.progress),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) =>
+                            CircularProgressIndicator(
+                                value: downloadProgress.progress),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 Text(
