@@ -30,11 +30,13 @@ class BadgesPage extends StatelessWidget {
                 size.width > 550
                     ? const LogoNEARFTHorizontal()
                     : const LogoNEARFTVertical(),
-                size.width > 375
-                    ? Text(title)
-                    : size.width > 250
-                        ? Text(titleShort)
-                        : Text(titleShort.substring(1, 4)),
+                Flexible(
+                  child: size.width > 400
+                      ? Text(title)
+                      : size.width > 250
+                          ? Text(titleShort)
+                          : Text(titleShort.substring(1, 4)),
+                ),
                 size.width > 545
                     ? const SizedBox(
                         width: 10,
