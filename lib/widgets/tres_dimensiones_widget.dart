@@ -15,8 +15,7 @@ class _Widget3DState extends State<Widget3D> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: GestureDetector(
+    return GestureDetector(
       onPanUpdate: (details) {
         print('onPanUpdate');
         print(details);
@@ -34,7 +33,7 @@ class _Widget3DState extends State<Widget3D> {
           child: Cube(),
         ),
       ),
-    ));
+    );
   }
 }
 
