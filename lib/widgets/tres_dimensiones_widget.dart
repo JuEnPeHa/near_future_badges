@@ -15,7 +15,8 @@ class _Widget3DState extends State<Widget3D> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Scaffold(
+        body: GestureDetector(
       onPanUpdate: (details) {
         print('onPanUpdate');
         print(details);
@@ -33,7 +34,7 @@ class _Widget3DState extends State<Widget3D> {
           child: Cube(),
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -44,44 +45,31 @@ class Cube extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BuildFace(
-          position1: 0.0,
-          position2: 0.0,
-          position3: 0.0,
-          rotation: -pi / 2,
-          color: Colors.red,
-          child: FlutterLogo(
-            size: 200,
+        Transform(
+          transform: Matrix4.identity()..translate(0.0, 0.0, 0.0)
+          //..rotateY(-pi / 2),
+          ,
+          child: Container(
+            color: Colors.limeAccent,
+            child: LogoNEARFTVertical(size: 200),
           ),
         ),
-        BuildFace(
-          position1: 0.0,
-          position2: 0.0,
-          position3: 0.0,
-          rotation: pi / 2,
-          color: Colors.green,
-          child: FlutterLogo(
-            size: 200,
+        Transform(
+          transform: Matrix4.identity()
+            ..translate(0.0, 0.0, 0.0)
+            ..rotateY(pi / 2),
+          child: Container(
+            color: Colors.pink,
+            child: LogoNEARFTVertical(size: 200),
           ),
         ),
-        BuildFace(
-          position1: 0.0,
-          position2: 0.0,
-          position3: 0.0,
-          rotation: pi / 2,
-          color: Colors.indigo,
-          child: FlutterLogo(
-            size: 200,
-          ),
-        ),
-        BuildFace(
-          position1: 0.0,
-          position2: 0.0,
-          position3: 0.0,
-          rotation: -pi / 2,
-          color: Colors.black,
-          child: FlutterLogo(
-            size: 200,
+        Transform(
+          transform: Matrix4.identity()
+            ..translate(0.0, 0.0, 0.0)
+            ..rotateX(-pi / 2),
+          child: Container(
+            color: Colors.lightGreen,
+            child: LogoNEARFTVertical(size: 200),
           ),
         ),
       ],
@@ -89,36 +77,18 @@ class Cube extends StatelessWidget {
   }
 }
 
-class BuildFace extends StatelessWidget {
-  const BuildFace({
-    super.key,
-    required this.position1,
-    required this.position2,
-    required this.position3,
-    required this.color,
-    required this.child,
-    required this.rotation,
-  });
-  final dynamic position1;
-  final double position2;
-  final double position3;
-  final Color color;
-  final Widget child;
-  final double rotation;
+// class BuildFace extends StatelessWidget {
+//   const BuildFace(
+//       {super.key,
+//       required this.position,
+//       required this.color,
+//       required this.rotation});
 
-  @override
-  Widget build(BuildContext context) {
-    return Transform(
-      transform: Matrix4.identity()
-        ..translate(position1, position2, position3)
-        ..rotateX(-pi / 2),
-      child: Container(
-        color: color,
-        child: child,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
 
 // Text('Drag me!'),
 //             Transform.translate(
