@@ -99,8 +99,9 @@ class Cube extends StatelessWidget {
           //..rotateY(-pi / 2),
           ,
           child: Container(
-            color: Colors.limeAccent,
+            //color: Colors.limeAccent,
             child: Image(
+              opacity: AlwaysStoppedAnimation(1.0),
               image: frontImage,
               fit: BoxFit.cover,
             ),

@@ -16,7 +16,7 @@ class BadgePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Widget3D(badge: badge) /*FlipBadge(badge: badge)*/,
+        child: /*Widget3D(badge: badge)*/ FlipBadge(badge: badge),
       ),
     );
   }

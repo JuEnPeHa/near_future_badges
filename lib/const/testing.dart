@@ -13,7 +13,7 @@ List<Badge> fillStartedBadges({int? maxLength}) {
         userId: "jeph.near",
         description:
             'Near Future is a non-profit organization that provides free, open-source software for the community.',
-        imageUrl: 'https://picsum.photos/id/${i + 50}/200/200',
+        imageUrl: 'https://picsum.photos/id/${i + 125}/200/200',
       ),
     );
   }
