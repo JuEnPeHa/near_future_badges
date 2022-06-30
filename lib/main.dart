@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'NEAR Future Tickets',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: /*BadgesPage(title: 'NEAR Future Tickets - Badges')*/ BadgePage(),
+      home: BadgesPage(title: 'NEAR Future Tickets - Badges') /*BadgePage()*/,
     );
   }
 }
