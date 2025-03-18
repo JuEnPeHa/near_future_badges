@@ -22,28 +22,41 @@ class _FlipBadgeState extends State<FlipBadge> {
     final transform = Matrix4.identity()
       ..setEntry(3, 2, 0.001)
       ..rotateY(angle);
-    return GestureDetector(
-      onHorizontalDragUpdate: (details) {
-        setState(() {
-          dragPosition -= details.delta.dx;
-          dragPosition %= 360;
+    final size = MediaQuery.of(context).size;
 
-          setImageSide();
-        });
-      },
-      child: Transform(
-        transform: transform,
-        alignment: Alignment.center,
-        child: isFront
-            ? CachedNetworkImage(imageUrl: widget.badge.imageUrl)
-            : Transform(
-                transform: Matrix4.identity()..rotateY(pi),
-                alignment: Alignment.center,
-                child: Container(
-                    color: Theme.of(context).primaryColor,
-                    child: LogoNEARFTVertical(
-                      size: 200,
-                    ))),
+    return Container(
+      width: size.width / 2.50,
+      height: size.width / 2.50,
+      child: GestureDetector(
+        onHorizontalDragUpdate: (details) {
+          setState(() {
+            dragPosition -= details.delta.dx;
+            dragPosition %= 360;
+
+            setImageSide();
+          });
+        },
+        child: Transform(
+          transform: transform,
+          alignment: Alignment.center,
+          child: isFront
+              ? CachedNetworkImage(
+                  imageUrl: widget.badge.imageUrl,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                )
+              : Transform(
+                  transform: Matrix4.identity()..rotateY(pi),
+                  alignment: Alignment.center,
+                  child: Container(
+                      color: Theme.of(context).primaryColor,
+                      child: LogoNEARFTVertical(
+                        size: 200,
+                      ))),
+        ),
       ),
     );
   }

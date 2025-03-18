@@ -12,7 +12,7 @@ class BadgeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Container(
@@ -20,18 +20,12 @@ class BadgeWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: FlipBadge(badge: badge),
-                // child: CachedNetworkImage(
-                //   imageUrl: badge.imageUrl,
-                //   progressIndicatorBuilder:
-                //       (context, url, downloadProgress) =>
-                //           CircularProgressIndicator(
-                //               value: downloadProgress.progress),
-                //   errorWidget: (context, url, error) =>
-                //       const Icon(Icons.error),
-                // ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: FlipBadge(badge: badge),
+                ),
               ),
               Text(
                 badge.title,

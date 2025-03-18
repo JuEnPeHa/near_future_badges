@@ -56,9 +56,9 @@ class BadgesPage extends StatelessWidget {
           //   ),
           // ),
           SliverGrid.count(
-            crossAxisSpacing: 15,
+            crossAxisSpacing: 5,
             childAspectRatio: 0.80,
-            crossAxisCount: (size.width ~/ 250 > 0) ? size.width ~/ 250 : 1,
+            crossAxisCount: (size.width ~/ 250 > 0) ? size.width ~/ 175 : 1,
             children: badgesNotNull
                 .map((Badge badge) => BadgeWidget(badge: badge))
                 .toList(),
